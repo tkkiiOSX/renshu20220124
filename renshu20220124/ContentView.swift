@@ -7,45 +7,68 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
+
+    @State var OnOff = false
+    //@State var RightP = false
+
     var body: some View {
         VStack{
             HStack{
-                Image(systemName: "person")
+                Image(systemName: "car.fill")
+                //Image(systemName: "cup.and.saucer.fill")
                     .resizable()
                     .frame(width: 100, height: 100)
-                    .foregroundColor(Color.red)
-                Image(systemName: "person")
+                    .foregroundColor(OnOff ? Color.blue :Color.red )
+                /*Image(systemName: "person")
                     .resizable()
                     .frame(width: 100, height: 100)
-                    .foregroundColor(Color.blue)
+                    .foregroundColor(OnOff ? Color.red : Color.gray)*/
+                    //.foregroundColor(Color.blue)
                 /*Text("HOUSE")
                     .font(Font.system(size: 10).bold())
                     .foregroundColor(Color.blue)*/
             }
             HStack {
                 Button(action: {
-                                    print("Button")
+
+                    OnOff = false
                                 }) {
-                                    Text("左の人")
-                                        .bold()
-                                        .padding()
-                                        .frame(width: 100, height: 100)
-                                        .foregroundColor(Color.white)
-                                        .background(Color.red)
-                                        .cornerRadius(10)
+                                    VStack{
+                                        Image(systemName: "car.fill")
+                                            .foregroundColor(Color.red)
+                                        Text("赤")
+                                            .foregroundColor(Color.red)
+                                            .bold()
+                                            .padding()
+                                    }
+                                    .frame(width: 100, height: 100)
+                                    .foregroundColor(Color.white)
+                                    .background(Color.gray )
+                                    .cornerRadius(10)
+
                                 }
                 Button(action: {
-                                    print("Button")
+
+                    OnOff = true
                                 }) {
-                                    Text("右の人")
-                                        .bold()
-                                        .padding()
-                                        .frame(width: 100, height: 100)
-                                        .foregroundColor(Color.white)
-                                        .background(Color.blue)
-                                        .cornerRadius(10)
-                                }
+                                    VStack {
+                                        Image(systemName: "car.fill")
+                                            .foregroundColor(Color.blue)
+                                        Text("青")
+                                            .foregroundColor(Color.blue)
+                                            .bold()
+                                            .padding()
+
+                                    }
+                                    .frame(width: 100, height: 100)
+                                    .foregroundColor(Color.white)
+                                    .background(Color.gray )
+                                    //.background(Color.blue)
+                                    .cornerRadius(10)
+                                    }
+
             }
 
 
